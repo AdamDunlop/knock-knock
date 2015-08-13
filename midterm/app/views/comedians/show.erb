@@ -1,0 +1,8 @@
+
+<h1>Comedian</h1>
+<img src="<%= "#{@comedian.picture_url}" %>"/>
+<p><%= "Comedian: #{@comedian.first_name} #{@comedian.last_name} |  " %></p>
+
+<% @events.each do |event| %>
+  <a href="/events/<%= event.id %>"><%= event.name %></a>
+<%end%>

@@ -20,6 +20,8 @@ get '/users/:id/edit' do
 end
 
 get '/comedians/:id' do
+  @comedian = Comedian.find(params[:id])
+  @events = Event.where(comedian_id: @comedian.id)
   erb :'comedians/show'
 end
 
@@ -32,6 +34,8 @@ get '/comedians/:id/requests' do
 end
 
 get '/venues/:id' do
+  @venue = Venue.find(params[:id])
+  @events = Event.where(venue_id: @venue.id)
   erb :'venues/show'
 end
 
@@ -49,6 +53,7 @@ get '/events/index' do
 end
 
 get '/events/:id' do
+  @event = Event.find(params[:id])
   erb :'events/show'
 end
 

@@ -1,0 +1,4 @@
+
+<h1>Event</h1>
+<p><%= "#{@event.name} | Date: #{@event.date} | Comedian: "%><a href="/comedians/<%= @event.comedian.id %>"><%="#{@event.comedian.first_name} #{@event.comedian.last_name} "%></a> | <a href="/venues/<%= @event.venue.id %>"><%= "Location: #{@event.venue.name}"%></a>
+</p>
