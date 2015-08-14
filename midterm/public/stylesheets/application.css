@@ -100,9 +100,12 @@ h1.home-title {
 
 
 .top-page {
-     background-image: url('../images/microphone.jpg');
+     background-image: url('../images/red copy.jpg');
+     background-repeat: no-repeat;
+     background-size:cover;
+     background-position: center center;
      width:100%;
-     padding-top:500px;
+     padding-top:580px;
      height: 100%;
      
 }
