@@ -13,7 +13,7 @@
 
    <form method="get" action="/search">
     <div class="input-group input-group-lg">
-      <input type="text" class="form-control" name="search" placeholder="Search for...">
+      <input type="text" class="form-control" name="search" placeholder="Search for Comedian/Venue/Event...">
       <span class="input-group-btn">
         <button class="btn btn-success" type="submit">Go!</button>
       </span>
@@ -28,39 +28,48 @@
 </div>
 
       </div>
-      <div class="jumbotron">
+      <div class="row middle-homepage">
+       <a href="/events/index" type="button" class="btn btn-success btn-lg btn-block">SEE ALL EVENTS</a>
+      </div>
+      <div class="jumbotron main-jumbo">
         <div class="container">
-    
-          <h1 class="home-title">UPCOMING EVENTS</h1>
+          <img id="upcoming-events" src="../images/upcomingevents.png">
+          
           <div class="row">
-            <div class="col-sm-6 col-md-4">
-              <div class="thumbnail">
-                <img src="http://dummyimage.com/242x200/f3f3f3/2d2d2d.png" alt="...">
+            <div class="col-sm-6 col-md-4 current-event">
+
+            <a href="#">  <div class="thumbnail">
+                <img class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/07/CameronEspositoPortrait-210x170.jpg" alt="...">
                 <div class="caption">
                   <h3>Event one</h3>
                   
                   <p> <%= "Event: #{@events_sorted_by_date[0].name} | Date: #{@events_sorted_by_date[0].date} | Comedian: #{@events_sorted_by_date[0].comedian.first_name}" %></p>
+
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-4">
+            </a>
+           <a href="#"> <div class="col-sm-6 col-md-4 current-event">
               <div class="thumbnail">
-                <img src="http://dummyimage.com/242x200/f3f3f3/2d2d2d.png" alt="...">
+                <img  class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/07/BenDarsowPromoPhoto2-210x170.jpg" alt="...">
                 <div class="caption">
                   <h3>Event two</h3>
-                 <p> <%= "Event: #{@events_sorted_by_date[1].name} | Date: #{@events_sorted_by_date[1].date} | Comedian: #{@events_sorted_by_date[1].comedian.first_name}" %></p>
+                 <p> <%= "Event: #{@events_sorted_by_date[1].name} | Date: #{@events_sorted_by_date[1].date } | Comedian: #{@events_sorted_by_date[1].comedian.first_name}" %></p>
                 </div>
               </div>
             </div>
-            <div class="col-sm-6 col-md-4">
+            </a>
+            <a href="#">
+            <div class="col-sm-6 col-md-4 current-event">
               <div class="thumbnail">
-                <img src="http://dummyimage.com/242x200/f3f3f3/2d2d2d.png" alt="...">
+                <img  class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/04/KevinBanner-210x170.png" alt="...">
                 <div class="caption">
                   <h3>Event three</h3>
                   <p> <%= "Event: #{@events_sorted_by_date[2].name} | Date: #{@events_sorted_by_date[2].date} | Comedian: #{@events_sorted_by_date[2].comedian.first_name}" %></p>
                 </div>
               </div>
             </div>
+            </a>
           </div>
           <a href="/events/index" type="button" class="btn btn-success btn-lg btn-block">See all events</a>
 
