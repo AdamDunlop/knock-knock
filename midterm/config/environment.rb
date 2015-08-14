@@ -35,4 +35,4 @@ require APP_ROOT.join('config', 'database')
 # Load the routes / actions
 require APP_ROOT.join('app', 'actions')
 
-Time::DATE_FORMATS[:custom_datetime] = "%d.%m.%Y"
+
