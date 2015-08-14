@@ -1,4 +1,10 @@
 # Homepage (Root path)
+helpers do
+  def current_user
+    @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+end
+
 get '/' do
   @comedians = Comedian.all
   @events = Event.all
@@ -97,4 +103,31 @@ end
 
 get '/map' do
   erb :'map/index'
+end
+
+post '/login' do
+  email = params[:email]
+  password = params[:password]
+
+  user = User.find_by(email: email)
+  if user.password == password
+    session[:user_id] = user.id
+    redirect '/events/index'
+  end
+end
+
+post '/users/new' do
+  email = params[:email]
+  password = params[:password]
+
+  user = User.find_by(email: email)
+
+  if user
+    redirect '/login'
+  else
+    user = User.create(email: email, password: password)
+    session[:user_id] = user.id
+    session[:notice] = "Account successfully created"
+    redirect '/events/index'
+  end
 end
