@@ -42,7 +42,8 @@
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#">Sign Up</a></li>
+          <li><a  data-toggle="modal" data-toggle="modal" data-target="#myModal4">Sign Up</a></li>
+
         <li><a  data-toggle="modal" data-toggle="modal" data-target="#myModal2"style="text-decoration: underline;">Login</a></li>
 
 
@@ -61,6 +62,94 @@
       <button type="button" class="btn btn-primary btn-lg button-home" data-toggle="modal" data-target="#myModal">
         Sign up as Comedian
       </button>
+      <button type="button" class="btn btn-info btn-lg button-home" data-toggle="modal" data-target="#myModal3">
+        Sign up as Venue
+      </button>
+       <!-- Modal4 -->
+<div class="modal fade" id="myModal4" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 style="text-align:center" class="modal-title" id="myModalLabel">Sign Up</h4>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/signup">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+
+              </div>
+<div class="checkbox">
+                  <label>
+                    <input type="checkbox"> I agree to the Terms and Conditions
+                  </label>
+                </div>
+                 <input type="submit" class="btn btn-success">
+              </form>
+
+            </div>
+            
+          </div>
+        </div>
+      </div>
+       <!-- Modal3 -->
+       <div class="modal fade" id="myModal3" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">Venue Sign up form</h4>
+            </div>
+            <div class="modal-body">
+              <form method="post" action="/venue">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+            
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input type="text" name="name" class="form-control" id="exampleInputEmail1" placeholder="First Name">
+                </div>
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Address</label>
+                  <input type="text" name="location" class="form-control" id="exampleInputEmail1" placeholder="Last Name">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Phone Number</label>
+                  <input type="text" name="phone_number" class="form-control" id="exampleInputPassword1" placeholder="Description">
+                </div>
+                
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Picture URL</label>
+                  <input type="text" name="picture_url" class="form-control" id="exampleInputPassword1" placeholder="Picture URL">
+                </div>
+                <div class="checkbox">
+                  <label>
+                    <input type="checkbox"> I agree to the Terms and Conditions
+                  </label>
+                </div>
+                 <input type="submit" class="btn btn-primary">
+              </form>
+
+            </div>
+            <div class="modal-footer">
+          
+            </div>
+          </div>
+        </div>
+      </div>
+      
       <!-- Modal2 -->
 <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -68,9 +157,34 @@
             <div class="modal-header">
               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
               <h4 style="text-align:center" class="modal-title" id="myModalLabel">Login</h4>
-            </div>
-            <div class="modal-body">
-              <form method="post" action="/login">
+            <ul class="nav nav-tabs">
+  <li class="active"><a data-toggle="tab" href="#home">User</a></li>
+  <li><a data-toggle="tab" href="#menu1">Comedian</a></li>
+  <li><a data-toggle="tab" href="#menu2">Venue</a></li>
+</ul>
+
+<div class="tab-content">
+  <div id="home" class="tab-pane fade in active">
+    <h3 style="color:black; text-align:center;">User</h3>
+    
+    <div class="modal-body">
+              <form method="post" action="/login/user">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+                 <input type="submit" class="btn btn-success"></p>
+                 </form>
+             </div>
+             </div>
+  <div id="menu1" class="tab-pane fade">
+    <h3 style="color:black; text-align:center;">Comedian</h3>
+    <div class="modal-body">
+              <form method="post" action="/login/comedian">
               <div class="form-group">
                 <label for="exampleInputEmail1">Email</label>
                 <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
@@ -80,6 +194,30 @@
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
               </div>
                  <input type="submit" class="btn btn-success">
+                 </form>
+  </div>
+  </div>
+  <div id="menu2" class="tab-pane fade">
+    <h3 style="color:black; text-align:center;">Venue</h3>
+   <div class="modal-body">
+              <form method="post" action="/login/venue">
+              <div class="form-group">
+                <label for="exampleInputEmail1">Email</label>
+                <input type="text" name="email" class="form-control" id="exampleInputEmail1" placeholder="Email">
+              </div>
+              <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+              </div>
+                 <input type="submit" class="btn btn-success"></p>
+         
+                </form>
+                </div>
+  </div>
+</div>
+
+            </div>
+            
               </form>
 
             </div>

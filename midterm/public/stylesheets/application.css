@@ -30,6 +30,13 @@ body {
   border:#d14b54; 
   font-size:22px;} 
 
+
+.btn-info { 
+
+  border:#d14b54; 
+  font-size:22px;
+  margin-top: 10px;} 
+
 .btn-primary:hover{ 
   background-color: grey;
   border:grey; } 
@@ -223,5 +230,6 @@ h1.home-title {
   top:-20px;
 
 }
+
 
 

@@ -1,4 +1,12 @@
 # Homepage (Root path)
+helpers do
+
+  
+
+end
+
+
+
 get '/' do
   @comedians = Comedian.all
   @events = Event.all
@@ -97,3 +105,14 @@ end
 get '/map' do
   erb :'map/index'
 end
+
+post '/venue' do
+  @venue = Venue.create(name: params[:name], location: params[:location], email: params[:email], password: params[:password], phone_number: params[:phone_number], picture_url: params[:picture_url])
+  redirect '/'
+end
+
+post '/signup' do
+  @user = User.create(email: params[:email], password: params[:password])
+  redirect '/'
+end
+
