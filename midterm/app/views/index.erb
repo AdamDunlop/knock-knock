@@ -1,1 +1,68 @@
-<h1>Home Page</h1>
+
+
+<div class="container top-page">
+
+
+  <div class="row">
+
+ <h1 id="nb-comedians">Number of comedians in Vancouver: <%= @comedians.count %></h1><br> <h1 id="nb-comedians">Number of events in Vancouver: <%= @events.count %></h1>
+  <div class="col-lg-4">
+  </div>
+
+  <div class="col-lg-4 homepage-search">
+
+   <form method="get" action="/search"
+    <div class="input-group input-group-lg">
+      <input type="text" class="form-control" name="search" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-success" type="submit">Go!</button>
+      </span>
+
+    </div><!-- /input-group -->
+
+    </div>
+
+     <div class="col-lg-4">
+  </div>
+  </div><!-- /.col-lg-6 -->
+</div>
+      </div>
+      <div class="jumbotron">
+        <div class="container">
+    
+          <h1 class="home-title">UPCOMING EVENTS</h1>
+          <div class="row">
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="http://dummyimage.com/242x200/f3f3f3/2d2d2d.png" alt="...">
+                <div class="caption">
+                  <h3>Event one</h3>
+                  
+                  <p> <%= "Event: #{@events_sorted_by_date[0].name} | Date: #{@events_sorted_by_date[0].date} | Comedian: #{@events_sorted_by_date[0].comedian.first_name}" %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="http://dummyimage.com/242x200/f3f3f3/2d2d2d.png" alt="...">
+                <div class="caption">
+                  <h3>Event two</h3>
+                 <p> <%= "Event: #{@events_sorted_by_date[1].name} | Date: #{@events_sorted_by_date[1].date} | Comedian: #{@events_sorted_by_date[1].comedian.first_name}" %></p>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6 col-md-4">
+              <div class="thumbnail">
+                <img src="http://dummyimage.com/242x200/f3f3f3/2d2d2d.png" alt="...">
+                <div class="caption">
+                  <h3>Event three</h3>
+                  <p> <%= "Event: #{@events_sorted_by_date[2].name} | Date: #{@events_sorted_by_date[2].date} | Comedian: #{@events_sorted_by_date[2].comedian.first_name}" %></p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <a href="/events/index" type="button" class="btn btn-success btn-lg btn-block">See all events</a>
+
+        </div>
+      </div>
+      

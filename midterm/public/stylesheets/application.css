@@ -1,0 +1,188 @@
+
+ .container-fluid {
+  margin-left: 30%;
+  margin-right:30%;
+ }
+
+body {
+  background: #212121;
+  
+}
+
+.nav.navbar-nav li a {
+    color: #8AEB2D;
+}
+
+.navbar {
+   margin-bottom:-20px;
+}
+.col-md-4 {
+  text-align: center;
+}
+
+.button-home {
+  float:right;
+
+}
+
+.btn-primary { 
+  background-color: #d14b54;
+  border:#d14b54; 
+  font-size:22px;} 
+
+.btn-primary:hover{ 
+  background-color: grey;
+  border:grey; } 
+
+h1.home-title {
+  text-align: center;
+  font-size: 38px;
+  padding-bottom:20px;
+}
+
+.footer {
+  color:white;
+  padding-top:20px;
+  padding-bottom:30px;
+}
+.container.events {
+  padding-top:30px;
+  margin-top:20px;
+  margin-bottom: 20px;
+}
+
+.row.event {
+  height: 150px;
+  background: #f5f5f5;
+  margin-bottom: 10px;
+  border-radius: 10px;
+  margin-left:50px;
+  margin-right:50px;
+   border: 3px #8AEB2D solid;
+}
+.row.event:hover {
+  position: relative;
+  top: 1px;
+}
+
+.events-title {
+  text-align: center;
+  color:white;
+  margin-bottom:40px;
+}
+
+.single-event {
+  padding-top:5px;
+  padding-left:5px;
+  border: 5px solid grey;
+  background-color:#BCB9BD; ;
+}
+
+.comedian-image {
+  float:right;
+  display:inline-block;
+  position:relative;
+  top: 14px;
+  right: 20px;
+  border-radius:5px;
+
+}
+
+.comedian-image2 {
+  margin:0 auto;
+  display:inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius:0px;
+  padding: 0px;
+
+}
+
+
+.top-page {
+     background-image: url('../images/microphone.jpg');
+     width:100%;
+     padding-top:500px;
+     height: 100%;
+     
+}
+
+.modal-body {
+  color:black;
+}
+
+.modal-title {
+  color:black;
+}
+
+.homepage-search {
+  position:relative;
+  top:-300px;
+}
+
+.venue-show {
+  color:white;
+}
+
+.jumbo-venue {
+  background-color:#BCB9BD;
+  height:300px;
+  width: 100%;
+}
+.white-container {
+  position:relative;
+  top:-60px;
+  background-color: #fffff7;
+  height: 100%;
+  width: 100%;
+  margin:0 auto;
+  border-radius: 10px;
+  padding-left:4%;
+  color:black;
+  padding-top: 20px;
+}
+
+.venue-map{
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 480px;
+  width: 720px;
+  background-color: #fffea4;
+}
+
+.venue-event {
+  height: 150px;
+  background: #8d8d8d;
+  margin-bottom: 10px;
+  margin-left:50px;
+  margin-right:80px;
+  color: black;
+}
+
+.first-block {
+  background: #404040;
+  height: 150px;
+  width: 150px;
+  padding: 0px;
+}
+.venue-image {
+  float:right;
+  position:relative;
+  left: -70px;
+  top:-59px;
+  border-radius: 2px;
+}
+
+.venue-jumbo {
+  position:relative;
+  top:30px;
+  left:50px;
+}
+
+#nb-comedians {
+  position: relative;
+  top:-50px;
+  text-align: center;
+  color:white;
+}

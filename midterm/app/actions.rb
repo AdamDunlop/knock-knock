@@ -1,5 +1,8 @@
 # Homepage (Root path)
 get '/' do
+  @comedians = Comedian.all
+  @events = Event.all
+  @events_sorted_by_date = Event.order(date: :asc).where('date > ?', Date.today).first(3)
   erb :'index'
 end
 
@@ -57,12 +60,38 @@ get '/events/:id' do
   erb :'events/show'
 end
 
+post '/comedians' do
+  @comedian = Comedian.create(first_name: params[:first_name], last_name: params[:last_name], description: params[:description], password: params[:password], email: params[:email], picture_url: params[:picture_url])
+  redirect '/'
+end
 
+delete '/events/:id' do
+  @event = Event.find(params[:id])
+  @event.destroy
+  @event.save
+  redirect '/events/index'
+end
 
-
-
-
-
+get '/search' do
+  @search = params[:search]
+  @event = Event.where('name like ?', "%#{@search}%")
+  @venue = Venue.where('name like ?', "%#{@search}%")
+  @comedian = Comedian.where('first_name like ? OR last_name like ? OR (first_name like ? AND last_name like ?)',"%#{@search}%","%#{@search}%","%#{@search}%","%#{@search}%")
+  if @event.any?
+    @result = @event.first
+    redirect "/events/#{@result.id}"
+  elsif @comedian.any?
+    @result = @comedian.first
+    redirect "/comedians/#{@result.id}"
+  elsif @venue.any?
+    @result = @venue.first
+    redirect "/venues/#{@result.id}"
+  else
+    redirect '/events/index'
+  end
+ 
+  erb :'search'
+end
 
 
 
