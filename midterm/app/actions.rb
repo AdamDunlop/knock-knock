@@ -53,6 +53,7 @@ end
 
 get '/events/index' do
   @events = Event.all
+  @events = @events.paginate(:page => params[:page], :per_page => 5)
   erb :'events/index'
 end
 
