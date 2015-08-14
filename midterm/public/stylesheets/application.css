@@ -145,15 +145,6 @@ h1.home-title {
   padding-top: 20px;
 }
 
-.venue-map{
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 480px;
-  width: 720px;
-  background-color: #fffea4;
-}
-
 .venue-event {
   height: 150px;
   background: #8d8d8d;
@@ -189,8 +180,11 @@ h1.home-title {
   text-align: center;
   color:white;
 }
-  #mymap {
-        width: 500px;
-        height: 400px;
-        background-color:#CCC;
-      }
+#mymap {
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 480px;
+  width: 720px;
+  background-color:#CCC;
+    }
