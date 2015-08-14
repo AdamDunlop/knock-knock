@@ -6,7 +6,7 @@
       <h1>Venue</h1>
       <p><%= "#{@venue.name}"%><%= " | Location: #{@venue.location}"%></a>
       </p>
-      </div>
+    </div>
     <img class="venue-image" src="http://www.thecomedymix.com/wp-content/uploads/2015/05/Brian-Scolaro-210x170.jpg" height="180" width="180">
   </div>
 </div>
@@ -14,8 +14,8 @@
 <div class="container venue-show">
   <div class="white-container">
     <div class="venue-map">
-        <div id="mymap"></div>
-    </div>
+      <div id="mymap"></div>
+      </div>
     <h2>Upcoming events</h2>
     <hr>
     <p><% @events.each do |event| %>
@@ -27,12 +27,24 @@
         <h4 class="single-event"><p>Event: <a href="/events/<%= event.id %>"><%= "#{event.name}" %></a><%= "| Date: #{event.date} | Location: #{event.venue.name} | Comedian:"%><a href="/comedians/<%= event.comedian.id %>"><%=" #{event.comedian.first_name} #{event.comedian.last_name}"%></a></p></h4>
       </div>
       <div class="col-md-6">
-
-
       </div>
+
     </div>
   </a>
   <% end %>
 </p>
+
+      <button type="button" class="btn btn-primary btn-lg button-home" data-toggle="modal" data-target="#myModal">
+        Sign up as Comedian
+      </button>
+      </div>
+      </p>
+    </div>
+    </div>
+</div>
+
+</div>
+</p>
+
 </div>
 </div>
