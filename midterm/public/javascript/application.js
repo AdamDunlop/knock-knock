@@ -1,6 +1,5 @@
 $(document).ready(function() {
-
-  var mymap;
+var mymap;
   var image = "http://i.stack.imgur.com/cdiAE.png";
   var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
   var labelIndex = 0;
@@ -43,5 +42,6 @@ $(document).ready(function() {
      icon: image
     });
   }
-initMap();
+  initMap();
+
 })
