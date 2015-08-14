@@ -4,14 +4,14 @@
 
 
   <div class="row">
-
+  <img src="/images/micro.png">
  <h1 id="nb-comedians">Number of comedians in Vancouver: <%= @comedians.count %></h1><br> <h1 id="nb-comedians">Number of events in Vancouver: <%= @events.count %></h1>
   <div class="col-lg-4">
   </div>
 
   <div class="col-lg-4 homepage-search">
 
-   <form method="get" action="/search"
+   <form method="get" action="/search">
     <div class="input-group input-group-lg">
       <input type="text" class="form-control" name="search" placeholder="Search for...">
       <span class="input-group-btn">
@@ -19,7 +19,7 @@
       </span>
 
     </div><!-- /input-group -->
-
+    </form>
     </div>
 
      <div class="col-lg-4">
