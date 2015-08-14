@@ -189,8 +189,15 @@ h1.home-title {
   text-align: center;
   color:white;
 }
-  #mymap {
-        width: 100%;
-        height: 500px;
-        background-color:#CCC;
-      }
+
+#mymap {
+  width: 100%;
+  height: 500px;
+  background-color:#CCC;
+}
+
+.previous_page a{
+    color: yellow;
+  
+}
+

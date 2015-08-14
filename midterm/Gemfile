@@ -12,7 +12,7 @@ gem 'puma'
 gem 'tux'
 
 gem 'geocoder'
-gem 'will_paginate', '~> 3.0.7'
+gem 'will_paginate', '~> 3.0.6'
 
 group :development, :test do
   gem 'pry'
