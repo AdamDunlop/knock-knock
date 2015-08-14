@@ -186,3 +186,8 @@ h1.home-title {
   text-align: center;
   color:white;
 }
+  #mymap {
+        width: 500px;
+        height: 400px;
+        background-color:#CCC;
+      }

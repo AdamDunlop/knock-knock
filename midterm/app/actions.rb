@@ -2,6 +2,7 @@
 get '/' do
   @comedians = Comedian.all
   @events = Event.all
+  # binding.pry
   @events_sorted_by_date = Event.order(date: :asc).where('date > ?', Date.today).first(3)
   erb :'index'
 end
@@ -93,5 +94,6 @@ get '/search' do
   erb :'search'
 end
 
-
-
+get '/map' do
+  erb :'map/index'
+end
