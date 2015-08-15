@@ -7,10 +7,12 @@ require 'active_support/all'
 require 'sinatra'
 require 'sinatra/activerecord'
 require 'sinatra/contrib/all' # Requires cookies, among other things
+require 'sinatra/flash'
 require 'will_paginate'
 require 'will_paginate/active_record'
 require 'will_paginate/view_helpers/sinatra'
 require 'will_paginate/array' 
+
 
 
 require 'pry'
