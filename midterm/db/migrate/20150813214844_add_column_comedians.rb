@@ -3,3 +3,4 @@ class AddColumnComedians < ActiveRecord::Migration
     add_column :comedians, :email, :string
   end
 end
+

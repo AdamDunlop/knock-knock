@@ -15,36 +15,31 @@
   <div class="white-container">
     <div class="venue-map">
       <div id="mymap"></div>
-      </div>
+      <input id="address" type="hidden" value="<%= @venue.location %>">  
+    </div>
     <h2>Upcoming events</h2>
     <hr>
     <p><% @events.each do |event| %>
-      <div class="row venue-event"><a href="www.google.com">
-        <div class="col-md-2 first-block">
-         <img class="comedian-image2" src="http://www.thecomedymix.com/wp-content/uploads/2015/05/Brian-Scolaro-210x170.jpg" height="120" width="120">
-       </div>
-       <div class="col-md-4">
-        <h4 class="single-event"><p>Event: <a href="/events/<%= event.id %>"><%= "#{event.name}" %></a><%= "| Date: #{event.date} | Location: #{event.venue.name} | Comedian:"%><a href="/comedians/<%= event.comedian.id %>"><%=" #{event.comedian.first_name} #{event.comedian.last_name}"%></a></p></h4>
-      </div>
-      <div class="col-md-6">
-      </div>
+      <div class="row venue-event">
+        <!-- <a href="www.google.com"> -->
+          <div class="col-md-2 first-block">
+            <img class="comedian-image2" src="http://www.thecomedymix.com/wp-content/uploads/2015/05/Brian-Scolaro-210x170.jpg" height="120" width="120" />
+          </div>
+          <div class="col-md-4">
+            <h4 class="single-event">
+              <p>Event: <a href="/events/<%= event.id %>"><%= "#{event.name}" %></a><%= "| Date: #{event.date} | Location: #{event.venue.name} | Comedian:"%><a href="/comedians/<%= event.comedian.id %>"><%=" #{event.comedian.first_name} #{event.comedian.last_name}"%></a>
+              </p>
+            </h4>
+          </div>
+          <div class="col-md-6">
 
-    </div>
-  </a>
-  <% end %>
-</p>
-
-      <button type="button" class="btn btn-primary btn-lg button-home" data-toggle="modal" data-target="#myModal">
+          </div>
+        <!-- </a> -->
+      </div>
+    <% end %>
+    </p>
+     <button type="button" class="btn btn-primary btn-lg button-home" data-toggle="modal" data-target="#myModal">
         Sign up as Comedian
       </button>
-      </div>
-      </p>
-    </div>
-    </div>
-</div>
-
-</div>
-</p>
-
-</div>
+  </div>
 </div>

@@ -1,24 +1,13 @@
 # Homepage (Root path)
 helpers do
-<<<<<<< HEAD
-
-  
-
-end
-
-
-
-=======
-  def current_user
+    def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
 end
 
->>>>>>> development_q2
 get '/' do
   @comedians = Comedian.all
   @events = Event.all
-  # binding.pry
   @events_sorted_by_date = Event.order(date: :asc).where('date > ?', Date.today).first(3)
   erb :'index'
 end
