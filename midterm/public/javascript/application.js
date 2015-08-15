@@ -1,47 +1,55 @@
-$(document).ready(function() {
+/* jshint jquery:true */
+/* globals google */
+$(function() {
+  "use strict";
+  var geocoder;
   var mymap;
-  var image = "http://i.stack.imgur.com/cdiAE.png";
-  var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  var labelIndex = 0;
 
-  // var mapCanvas = document.getElementById('mymap');
-
-  function initMap() {
-    mymap = new google.maps.Map(document.getElementById('mymap'), {
+  function initMap()
+  {
+    geocoder = new google.maps.Geocoder();
+    mymap = new google.maps.Map(document.getElementById('mymap'),
+    {
       center: {lat: 49.277924, lng: -123.117307},
       zoom: 13,
-      streetViewControl: true  
-
-    });
-
-    var marker = new google.maps.Marker({
-     position: {lat: 49.259630, lng: -123.115102},
-     map: mymap,
-     label: labels[labelIndex++ % labels.length],
-
-    });
-  
-     var marker = new google.maps.Marker({
-     position: {lat: 49.280974, lng: -123.127125},
-     map: mymap,
-     label: labels[labelIndex++ % labels.length],
-
-    });
-
-
-     var marker = new google.maps.Marker({
-     position: {lat: 49.280442, lng: -123.121061},
-     map: mymap,
-     icon: image,
-
-    }); 
-
-     var marker = new google.maps.Marker({
-     position: {lat: 49.277924, lng: -123.117307},
-     map: mymap,
-     icon: image
+      streetViewControl: true,  
     });
   }
-  initMap();
 
-})
+  // image = "http://i.stack.imgur.com/cdiAE.png";
+  // labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // labelIndex = 0;
+  // marker = new google.maps.Marker({
+  //   position: latlng,
+  //   map: mymap,
+  //   label: labels[labelIndex++ % labels.length],
+  //   draggable: true
+  // });
+
+  //var image = "http://i.stack.imgur.com/cdiAE.png";
+  //var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  //var labelIndex = 0;
+
+  function codeAddress()
+  {
+    var address = document.getElementById("address").value;
+    geocoder.geocode({ address: address},
+      function(results, status)
+      {
+        if (status === google.maps.GeocoderStatus.OK)
+        {
+          mymap.setCenter(results[0].geometry.location);
+          new google.maps.Marker({
+            map: mymap,
+            position: results[0].geometry.location
+          });
+        }
+        else
+        {
+          console.error("Geocode was not successful for the following reason: ", status);
+        }
+      });
+  }
+  initMap();
+  codeAddress();
+});

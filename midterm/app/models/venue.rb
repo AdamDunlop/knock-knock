@@ -4,11 +4,3 @@ class Venue < ActiveRecord::Base
 
 end 
 
-  # after_validation :geocode
-
-
-  # def geocode_address
-
-  #   "#{location}"
-
-  # end
