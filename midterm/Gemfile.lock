@@ -88,8 +88,7 @@ DEPENDENCIES
   sinatra-contrib
   sqlite3
   tux
-  will_paginate (~> 3.0.7)
-
+  will_paginate (~> 3.0.6)
 
 BUNDLED WITH
    1.10.6

@@ -52,6 +52,9 @@ get '/venues/:id' do
 end
 
 get '/venues/:id/requests' do
+  @requests = Request.where(venue_id: params[:id])
+  @events = Event.all
+  @venue = Venue.find(params[:id])
   erb :'venues/requests'
 end
 
@@ -80,6 +83,13 @@ delete '/events/:id' do
   @event.destroy
   @event.save
   redirect '/events/index'
+end
+
+delete '/venues/:id/requests' do
+  @request = Request.find(params[:id])
+  @request.destroy
+  @request.save
+  redirect '/'
 end
 
 get '/search' do
