@@ -11,7 +11,13 @@ helpers do
   def current_venue
     @current_venue ||= Venue.find_by(id: session[:venue_id]) if session[:venue_id]
   end
+
+  def date_format(date)
+    date.strftime("%e %B %Y | Time: %I:%M %p ")
+  end
+
 end
+
 
 get '/' do
   @comedians = Comedian.all

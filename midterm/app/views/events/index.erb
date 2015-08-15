@@ -2,25 +2,25 @@
 <div class="container events">
   <h1 class="events-title">Upcoming Events</h1>
 
-      <p><% @events.each do |event| %>
+  
+  <% @events.each do |event| %>
     <div class="row event">
       <div class="col-md-6">
-        <h4 class="single-event"><p>Event: <a href="/events/<%= event.id %>"><%= "#{event.name}" %></a><%= "| Date: #{event.date} | Location: #{event.venue.name} | Comedian:"%><a href="/comedians/<%= event.comedian.id %>"><%=" #{event.comedian.first_name} #{event.comedian.last_name}"%></a></p></h4>
-      </div>
-      <div class="col-md-6">
-        <form method="post" action="/events/<%= event.id %>">
-        <input type="hidden" name="_method" value="delete">
-        <h3><button style="position:relative; top: 10px;float:right;"class="btn btn-danger" type="submit">Delete</button>
-        </form>
-        <img class="comedian-image" src="http://www.thecomedymix.com/wp-content/uploads/2015/05/Brian-Scolaro-210x170.jpg" height="120" width="120">
-      </div>
+          <p> Event: <a href="/events/<%= event.id %>"><%= "#{event.name}" %></a>  
+          <%= "<br> Date: #{date_format(event.date)} <br> Location: #{event.venue.name} <br> Comedian:"%>
+          <a href="/comedians/<%= event.comedian.id %>"><%=" #{event.comedian.first_name} #{event.comedian.last_name}"%></a>
+          </p>
+        </a> 
+      </div>   
+      <img class="comedian-image" src="http://www.thecomedymix.com/wp-content/uploads/2015/05/Brian-Scolaro-210x170.jpg" height="120" width="120"/>   
     </div> <!-- row event div -->
   <% end %>
-  </p>
+
+
 
 
   <div class="row">
-    <div class="col-md-2 col-md-offset-5">
+    <div class="col-md-offset-9">
     <%= will_paginate @events %>
     </div>
   </div>
