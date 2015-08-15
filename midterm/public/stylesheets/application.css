@@ -232,9 +232,33 @@ h1.home-title {
   background-color:#CCC;
 }
 
-.previous_page a{
-    color: yellow;
-  
+.login-error {
+  border-top: 20px;
+  margin-top:30px;
+  height:30px;
+    color:black;
+    background: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+
+.pagination .current {
+  font-size:20px;
+}
+
+.pagination a {
+  font-size:20px;
+  color: #8AEB2D;
+}
+
+.pagination .next_page {
+  font-size:20px;
+  color:#8AEB2D;
+}
+
+.pagination .previous_page {
+  font-size:20px;
 }
 
 

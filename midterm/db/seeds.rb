@@ -1,8 +1,8 @@
 Comedian.create(first_name:"Adam", last_name: "Dunlop", description: "chomp chomp", email: "a@d.com")
-Comedian.create(first_name:"Evert", last_name: "R", email: "e@r.com")
-Comedian.create(first_name:"Doge", last_name: "Dog", email: "d@d.com")
-Comedian.create(first_name:"Jerry", last_name: "Seinfield", email: "j@s.com")
-Comedian.create(first_name:"Kevin", last_name: "Hart", email: "k@h.com")
+Comedian.create(first_name:"Evert", last_name: "R", email: "e@r.com", password: 1234)
+Comedian.create(first_name:"Doge", last_name: "Dog", email: "d@d.com", password: 1234)
+Comedian.create(first_name:"Jerry", last_name: "Seinfield", email: "j@s.com", password: 1234)
+Comedian.create(first_name:"Kevin", last_name: "Hart", email: "k@h.com", password: 1234)
 
 
 
@@ -19,9 +19,9 @@ Event.create(name:"Laugh8", comedian_id: 5, venue_id: 3, date: Date.today + 2.da
 Event.create(name:"Laugh9", comedian_id: 5, venue_id: 1, date: Date.today + 3.day, ticket_price: 10)
 Event.create(name:"Laugh10", comedian_id: 5, venue_id: 2, date: Date.today, ticket_price: 10)
 
-Venue.create(name: "Stadium1", location: "123 W Hasting")
-Venue.create(name: "Stadium2", location: "123 Chestnut Street")
-Venue.create(name: "Stadium3", location: "1 West Georgia Street")
+Venue.create(name: "Stadium1", location: "123 W Hasting", email: "venue1@v.com", password: 1234)
+Venue.create(name: "Stadium2", location: "123 Chestnut Street", email: "venue2@v.com", password: 1234)
+Venue.create(name: "Stadium3", location: "1 West Georgia Street", email: "venue3@v.com", password: 1234)
 
 User.create(email:"test@g.com", password: "test")
 User.create(email:"user@g.com", password: "user")
