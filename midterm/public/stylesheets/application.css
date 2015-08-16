@@ -207,10 +207,15 @@ h1.home-title {
   box-shadow:  2px 2px 6px black;
 }
 
+.current-event {
+  padding-top:40px;
+
+}
+
 .current-event:hover {
   position: relative;
   top:2px;
-  opacity: 0.7;
+  opacity: 0.9;
 }
 
 .home-comedians {
@@ -223,7 +228,9 @@ h1.home-title {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:-20px;
+  top:0px;
+  background-color: white;
+
 }
 
 
@@ -336,3 +343,20 @@ h1.home-title {
   text-align: left;
 }
 
+.main-jumbo{
+     background-image: url('../images/orangestars.png');
+     background-repeat:repeat;
+   
+     width:100%;
+     padding-top:0px;
+     height: 100%;
+     
+}
+
+.row.middle-homepage {
+  background-color:white;
+}
+
+.thumbnail.a {
+  font-size: 30px;
+}
