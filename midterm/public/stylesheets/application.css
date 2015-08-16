@@ -194,13 +194,16 @@ h1.home-title {
   color:white;
 }
 
+
+
 #mymap {
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 480px;
-  width: 720px;
+  width: 100%;
+  height: 500px;
   background-color:#CCC;
+  position: relative;
+  left:-25px;
+  border-radius:10px;
+  box-shadow:  2px 2px 6px black;
 }
 
 .current-event:hover {
@@ -222,11 +225,6 @@ h1.home-title {
   top:-20px;
 }
 
-#mymap {
-  width: 100%;
-  height: 500px;
-  background-color:#CCC;
-}
 
 .login-error {
   border-top: 20px;
@@ -296,7 +294,26 @@ h1.home-title {
 
 .form-control.content  {
    height: 100px;
-   
-  
 }
 
+.comedian-profile-picture {
+  margin-left:auto;
+  margin-right: auto;
+
+}
+
+.doge {
+    border: 7px solid grey;
+  border-radius: 100%;
+}
+
+.comedian-container {
+  background-image: url('../images/comedianbackground.jpg');
+     background-repeat: no-repeat;
+     background-size:cover;
+     background-position: center center;
+     width:100%;
+ 
+     height: 100%;
+
+}
