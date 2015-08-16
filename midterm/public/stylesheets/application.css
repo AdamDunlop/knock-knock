@@ -66,13 +66,8 @@ h1.home-title {
   border-radius: 10px;
   margin-left:50px;
   margin-right:50px;
-<<<<<<< HEAD
-   border: 3px grey solid;
-=======
-  /*border: 3px #8AEB2D solid;*/
   font-size: 20px;
   padding-top:15px;
->>>>>>> development_q3
 }
 .row.event:hover {
   position: relative;
@@ -298,8 +293,21 @@ h1.home-title {
 
 .form-control.content  {
    height: 100px;
-   
   
 }
 
+.jumbo-event {
+ background-color: #8AEB2D;
+  height:50px;
+  width: 100%;
+}
+
+.event-show {
+  color:white;
+  font-size: 20px;
+}
+
+.event-info-item p {
+  text-align: left;
+}
 

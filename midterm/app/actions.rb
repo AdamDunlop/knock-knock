@@ -13,7 +13,7 @@ helpers do
   end
 
   def date_format(date)
-    date.strftime("%e %B %Y | Time: %I:%M %p ")
+    date.strftime("%e %B %Y <br> Time: %I:%M %p ")
   end
 
 end
@@ -76,7 +76,8 @@ end
 
 get '/events/index' do
   @events = Event.all
-  @events = @events.paginate(:page => params[:page], :per_page => 5)
+  @events_sorted = Event.order(date: :asc).where('date > ?', Date.today)
+  @events_sorted = @events_sorted.paginate(:page => params[:page], :per_page => 5)
   erb :'events/index'
 end
 

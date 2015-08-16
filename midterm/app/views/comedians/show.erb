@@ -1,17 +1,39 @@
-<div class="container jumbo-comedian">
-
+<div class="container jumbo-event">
   <div class="container">
-    <div class="comedian-jumbo">
-      
-    	<h1>Comedian</h1>
-			<img src="<%= "#{@comedian.picture_url}" %>"/>
-			<p><%= "Comedian: #{@comedian.first_name} #{@comedian.last_name} |  " %></p>
-
-			<% @events.each do |event| %>
-  		<a href="/events/<%= event.id %>"><%= event.name %></a>
-			<%end%>
-
+    <div class="venue-jumbo">
     </div>
-   
   </div>
 </div>
+
+<div class="container event-show">
+  <h1><%= "#{@comedian.first_name} #{@comedian.last_name}"%></h1>
+  <hr>
+  <div class="row">
+    <div class="col-md-7 comedian-info-item">
+      <p><%= "#{@comedian.description}" %></p>
+  
+      </p>
+    </div> 
+    <div class="col-md-1">
+    </div>
+    
+    <div class="col-md-4">
+      <img class="comedian-image" src="<%= @comedian.picture_url %>" height="466" width="349">
+    </div>
+  </div>  
+  
+  <div class="container">
+  <h3>Other events by <%= "#{@comedian.first_name} #{@comedian.last_name}" %></h3>
+    <div class="col-sm-6 col-md-4 other-event">
+      <% @events.each do |event| %>
+        <a href="/events/<%= event.id%>">  
+          <div class="thumbnail">
+            <img class="home-comedians" src="<%= event.picture_url %>" alt="...">
+          </div>
+        </a>  
+      <%end%>  
+    </div> 
+  </div>
+<hr>
+</div>
+
