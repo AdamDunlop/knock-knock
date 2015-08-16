@@ -11,7 +11,8 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150815043235) do
+
+ActiveRecord::Schema.define(version: 20150816192745) do
 
   create_table "comedians", force: :cascade do |t|
     t.string   "first_name"
@@ -39,6 +40,7 @@ ActiveRecord::Schema.define(version: 20150815043235) do
     t.integer  "ticket_price"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "picture_url"
   end
 
   create_table "events_users", force: :cascade do |t|

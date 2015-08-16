@@ -3,7 +3,7 @@
   <h1 style="text-align:center" class="events-title">Upcoming Events</h1>
 
   
-  <% @events.each do |event| %>
+  <% @events_sorted.each do |event| %>
     <div class="row event">
       <div class="col-md-6">
           <p> Event: <a href="/events/<%= event.id %>"><%= "#{event.name}" %></a>  
@@ -21,7 +21,7 @@
 
   <div class="row">
     <div class="col-md-offset-9">
-    <%= will_paginate @events %>
+    <%= will_paginate @events_sorted %>
     </div>
   </div>
 
