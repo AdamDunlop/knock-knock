@@ -15,9 +15,7 @@ helpers do
   def date_format(date)
     date.strftime("%e %B %Y <br> Time: %I:%M %p ")
   end
-
 end
-
 
 get '/' do
   @comedians = Comedian.all
@@ -45,6 +43,7 @@ end
 
 get '/comedians/:id' do
   @comedian = Comedian.find(params[:id])
+  @tweets = @comedian.get_tweets
   @events = Event.where(comedian_id: @comedian.id)
   erb :'comedians/show'
 end
@@ -61,6 +60,11 @@ get '/venues/:id' do
   @venue = Venue.find(params[:id])
   @events = Event.where(venue_id: @venue.id)
   erb :'venues/show'
+end
+
+get '/venues' do
+  @venues = Venue.all
+  erb :'venues/index'
 end
 
 get '/venues/:id/requests' do
@@ -126,11 +130,6 @@ get '/search' do
   erb :'search'
 end
 
-get '/map' do
-  erb :'map/index'
-end
-
-
 post '/venue' do
   @venue = Venue.create(name: params[:name], location: params[:location], email: params[:email], password: params[:password], phone_number: params[:phone_number], picture_url: params[:picture_url])
   redirect '/'
@@ -146,67 +145,40 @@ post '/login' do
   password = params[:password]
 
   user = User.find_by(email: email)
-  if user.nil? 
-    flash[:message] = "Please enter a valid email address and password!"
-    redirect '/'
-  end
-  
   if user.password == password
     session[:user_id] = user.id
     redirect '/events/index'
-  elsif user.email != email || user.email == nil || user.password == nil
-    redirect '/'
   end
 end
 
-post '/login/comedian' do
-  com_email = params[:email]
-  com_password = params[:password]
+post '/users/new' do
+  email = params[:email]
+  password = params[:password]
 
-  comedian = Comedian.find_by(email: com_email)
-  if comedian.nil? 
-    flash[:message] = "Please enter a valid email address and password!"
-    redirect '/'
-  elsif comedian.password == com_password
+
+  if user
+      user = User.find_by(email: email)
+    redirect '/login'
+  else
+    user = User.create(email: email, password: password)
+    session[:user_id] = user.id
+    session[:notice] = "Account successfully created"
+    redirect '/events/index'
+  end
+end
+
+post '/comedians/new' do
+  email = params[:email]
+  password = params[:password]
+
+
+  if comedian
+      comedian = Comedian.find_by(email: email)
+    redirect '/login'
+  else
+    comedian = Comedian.create(email: email, password: password)
     session[:comedian_id] = comedian.id
-    redirect '/comedians/1'
-  # binding.pry
+    session[:notice] = "Account successfully created"
+    redirect '/venues'
   end
 end
-
-post '/login/venue' do
-  ven_email = params[:email]
-  ven_password = params[:password]
-
-  venue = Venue.find_by(email: ven_email)
-  if venue.nil?
-    flash[:message] = "Please enter a valid email address and password!"
-    redirect '/'
-  elsif venue.password == ven_password
-    session[:venue_id] = venue.id
-    redirect '/venues/1'
-  # binding.pry
-  elsif venue.email != ven_email || venue.email == nil || venue.password == nil
-    redirect '/'
-  end
-end
-
-
-# post '/users/new' do
-#   email = params[:email]
-#   password = params[:password]
-
-#   user = User.find_by(email: email)
-
-#   if user
-#     redirect '/login'
-#   else
-#     user = User.create(email: email, password: password)
-#     session[:user_id] = user.id
-#     session[:notice] = "Account successfully created"
-#     redirect '/events/index'
-#   end
-# end
-
-
-

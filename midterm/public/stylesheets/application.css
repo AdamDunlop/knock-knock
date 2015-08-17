@@ -188,6 +188,13 @@ h1.home-title {
   left:50px;
 }
 
+.venue-twitter {
+  float:center;
+  position:relative;
+  top:-59px;
+  border-radius: 2px;
+}
+
 #nb-comedians {
   position: relative;
   top:-50px;
@@ -231,9 +238,6 @@ h1.home-title {
   top:0px;
   background-color: white;
 
-}
-
-
 .login-error {
   border-top: 20px;
   margin-top:30px;
@@ -243,7 +247,6 @@ h1.home-title {
     font-size: 20px;
     text-align: center;
 }
-
 
 .pagination .current {
   font-size:20px;
@@ -262,12 +265,9 @@ h1.home-title {
   border:6px solid #3A3A37;
   position: relative;
   top:15px;
-  
- 
 }
 
 .single-request {
-
   text-align:left;
 }
 
@@ -277,7 +277,6 @@ h1.home-title {
   border-radius: 15px;
  box-shadow: 2px 2px 6px black;
  background-image: url('../images/paper.png')
-
 }
 
 .pagination .next_page {
@@ -360,3 +359,5 @@ h1.home-title {
 .thumbnail.a {
   font-size: 30px;
 }
+
+

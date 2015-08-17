@@ -1,19 +1,17 @@
+require 'twitter'
 
- <div class="container comedian-container">
 <h1>Comedian</h1>
-<div class="row">
-	<div class="col-md-4">
-	</div>
-	<div class="col-md-4">
-	<div class="comedian-profile-picture"><img class="doge" src= "<%= "#{@comedian.picture_url}" %>"/></div>
-	<h1 style="color:white;"><%= "#{@comedian.first_name} #{@comedian.last_name}" %></h1>
-	</div>
-	<div class="col-md-4">
-	</div>
 
-	
-	
-</div> <!-- end of row --> 
+<h2><%= "#{@comedian.first_name} #{@comedian.last_name} #{@comedian.get_tweets} |  ".capitalize %> <a class="twitter-share-button"
+  href="https://twitter.com/intent/tweet">
+Tweet</a></h2>
+
+<p><img src="<%= "#{@comedian.picture_url}" %>"/></p>
+<a class="twitter-timeline" href="https://twitter.com/<%="#{@comedian.first_name}".capitalize%><%="#{@comedian.last_name}".capitalize%>" data-widget-id=<%= "#{@comedian.widget_id}"%>>Tweets by @<%="#{@comedian.first_name}".capitalize%><%="#{@comedian.last_name}".capitalize%></a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+"://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+
+<br>
+
 <% @events.each do |event| %>
 <a href="/events/<%= event.id %>"><%= event.name %></a>
 <%end%>
@@ -59,5 +57,6 @@
   </div>
 <hr>
 </div>
+
 
 
