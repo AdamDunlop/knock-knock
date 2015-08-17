@@ -15,6 +15,25 @@ helpers do
   def date_format(date)
     date.strftime("%e %B %Y <br> Time: %I:%M %p ")
   end
+
+
+
+  def random_joke   
+    jokes = []
+    all_comedians.each do |comedian|
+      if comedian.joke != nil
+        jokes << comedian.joke
+      end
+    end
+    jokes[rand(jokes.length)]
+
+  end
+
+  def all_comedians
+    @all_comedians = Comedian.all
+  end
+
+
 end
 
 get '/' do

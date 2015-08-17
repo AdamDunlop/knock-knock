@@ -14,7 +14,8 @@ body {
 }
 
 .navbar {
-   margin-bottom:-20px;
+   margin-bottom:-5px;
+   z-index: 10;
 }
 .col-md-4 {
   text-align: center;
@@ -29,6 +30,12 @@ body {
   background-color: #d14b54;
   border:#d14b54; 
   font-size:22px;} 
+
+.btn-warning.event {
+  background-color: #e0a320;
+  font-size:22px;
+  text-align:center;
+}
 
 
 .btn-info { 
@@ -121,6 +128,8 @@ h1.home-title {
      width:100%;
      padding-top:580px;
      height: 100%;
+     position: relative;
+    
      
 }
 
@@ -395,5 +404,16 @@ h1.home-title {
   min-height:300px;
   min-width:300px;
   border-radius:10px;
+}
+
+
+.joke-bar {
+  height:50px;
+
+}
+
+.stripe-button-el {
+  position:relative;
+  left:220px;
 }
 
