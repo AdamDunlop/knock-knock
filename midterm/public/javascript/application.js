@@ -3,7 +3,7 @@ $(function() {
   "use strict";
   var geocoder;
   var mymap;
- 
+
   function initMap()
   {
     geocoder = new google.maps.Geocoder();

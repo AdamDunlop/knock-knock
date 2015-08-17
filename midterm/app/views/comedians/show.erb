@@ -1,3 +1,4 @@
+
 require 'twitter'
 
 <h1>Comedian</h1>
@@ -19,6 +20,7 @@ Tweet</a></h2>
 
 
 
+
 <div class="container jumbo-event">
   <div class="container">
     <div class="venue-jumbo">
@@ -32,26 +34,27 @@ Tweet</a></h2>
   <div class="row">
     <div class="col-md-7 comedian-info-item">
       <p><%= "#{@comedian.description}" %></p>
-  
       </p>
     </div> 
     <div class="col-md-1">
     </div>
-    
     <div class="col-md-4">
       <img class="comedian-image" src="<%= @comedian.picture_url %>" height="466" width="349">
     </div>
   </div>  
   
   <div class="container">
-  <h3>Other events by <%= "#{@comedian.first_name} #{@comedian.last_name}" %></h3>
+  <h3><em>Other events by <%= "#{@comedian.first_name} #{@comedian.last_name}" %></em></h3>
     <div class="col-sm-6 col-md-4 other-event">
       <% @events.each do |event| %>
-        <a href="/events/<%= event.id%>">  
+        <div class="caption">
+          <h3><%= "#{event.name}"%></h3>        
+          <a href="/events/<%= event.id%>">  
           <div class="thumbnail">
             <img class="home-comedians" src="<%= event.picture_url %>" alt="...">
           </div>
-        </a>  
+          </a>
+        </div>    
       <%end%>  
     </div> 
   </div>

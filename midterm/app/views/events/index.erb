@@ -1,21 +1,26 @@
 
 <div class="container events">
   <h1 style="text-align:center" class="events-title">Upcoming Events</h1>
-
-  
+  <div class="col-md-1"></div>
+  <div class="col-md-10">
   <% @events_sorted.each do |event| %>
     <div class="row event">
-      <div class="col-md-6">
-          <p> Event: <a href="/events/<%= event.id %>"><%= "#{event.name}" %></a>  
-          <%= "<br> Date: #{date_format(event.date)} <br> Location: #{event.venue.name} <br> Comedian:"%>
-          <a href="/comedians/<%= event.comedian.id %>"><%=" #{event.comedian.first_name} #{event.comedian.last_name}"%></a>
-          </p>
+      <div class="col-md-4">
+          <p> Event: <a href="/events/<%= event.id %>"><%= event.name %></a> </p> 
+          <p>Date: <%= "#{date_format(event.date)}" %></p>
         </a> 
-      </div>   
-      <img class="comedian-image" src="http://www.thecomedymix.com/wp-content/uploads/2015/05/Brian-Scolaro-210x170.jpg" height="120" width="120"/>   
+      </div> 
+      <div class="col-md-4">
+         <p> Comedian: <a href="/comedians/<%= event.comedian.id %>"><%=" #{event.comedian.first_name} #{event.comedian.last_name}"%></a></p>
+          <p> Location: <%= event.venue.name%></p>
+      </div>  
+      <div class="col-md-4">
+        <img class="comedian-image" src="<%= event.picture_url %>" height="120" width="120"/>
+      </div>  
     </div> <!-- row event div -->
   <% end %>
-
+  </div>
+  <div class="col-md-1"></div>
 
 
 
@@ -25,7 +30,8 @@
     </div>
   </div>
 
+
   
 
-<hr>
+
 </div> <!-- closing main div -->
