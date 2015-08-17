@@ -1,4 +1,13 @@
 # Homepage (Root path)
+
+ register do
+    def auth (type)
+      condition do
+        redirect "/login" unless send("is_#{type}?")
+      end
+    end
+  end
+
 helpers do
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
@@ -15,7 +24,14 @@ helpers do
   def date_format(date)
     date.strftime("%e %B %Y <br> Time: %I:%M %p ")
   end
+
+  def is_user?
+    @user != nil
+  end
+
 end
+
+
 
 get '/' do
   @comedians = Comedian.all
@@ -25,6 +41,7 @@ get '/' do
 end
 
 get '/login' do
+  session[:user_id] = User.authenticate(params).id
   erb :'login'
 end
 
@@ -154,7 +171,6 @@ end
 post '/users/new' do
   email = params[:email]
   password = params[:password]
-
 
   if user
       user = User.find_by(email: email)

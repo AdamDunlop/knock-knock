@@ -1,7 +1,7 @@
 # comedian: first_name, last_name, description, picture_url, email, password, widget_id
 
 Comedian.create(first_name: "Various", description: "Check out Vancouver’s next top comics as they develop their craft.", picture_url: "http://blogs.psychcentral.com/no-family-madder/files/2014/01/Comedy-Club-Mike-225x149.jpg" )
-Comedian.create(first_name:"Adam", last_name: "Dunlop", description: "chomp chomp", email: "a@d.com", picture_url:"http://s16.postimg.org/idsgi3rc5/doge.jpg", password:1234)
+Comedian.create(first_name:"Adam", last_name: "Dunlop", description: "chomp chomp", email: "a@d.com", picture_url:"http://s16.postimg.org/idsgi3rc5/doge.jpg", password:1234, widget_id:"633035440103141376")
 Comedian.create(first_name:"Evert", last_name: "R", email: "e@r.com", picture_url:"http://s16.postimg.org/idsgi3rc5/doge.jpg", password:1234)
 Comedian.create(first_name:"Doge", last_name: "Dog", email: "d@d.com", picture_url:"http://s16.postimg.org/idsgi3rc5/doge.jpg", password:1234)
 Comedian.create(first_name:"Jerry", last_name: "Seinfield", email: "j@s.com", picture_url:"https://thestuckcreative.files.wordpress.com/2013/03/jerry-seinfeld.jpg", password:1234)
@@ -9,7 +9,8 @@ Comedian.create(first_name:"Kevin", last_name:"Hart", email:"k@h.com", descripti
 Comedian.create(first_name:"Russell", last_name:"Peters", email:"r@p.com", description: "Something about Russell Peters", password: 1234, picture_url:"http://s1.ticketm.net/tm/en-ca/dam/a/725/8ecb4466-3bc6-498b-8644-ee22e10be725_16841_CUSTOM.jpg")
 Comedian.create(first_name:"Weird", last_name:"Al", email:"w@a.com", description: "Something about Weird Al", password: 1234, picture_url:"http://static.tvtropes.org/pmwiki/pub/images/weirdal.jpg")
 Comedian.create(first_name:"Ivan", last_name:"Decker", email:"i@v.com", description: "Since his start in comedy in a dusty broken down bar in East Vancouver Ivan Decker has quickly become one of the most enjoyable comedians in the country. He has honed his comedic skill and craft to one day hopefully end up back at that same broken down bar except perhaps this time he’ll get staff discount on a sandwich. A man can dream…", password: 1234, picture_url:"http://www.thecomedymix.com/wp-content/uploads/2012/04/Ivan-Decker-High-Res.jpg")
-Comedian.create(first_name:"John", last_name:"Cullen", email:"j@c.com", description: "He has been praised for being “immediately likable” on stage, a statement he fully endorses. John makes audiences feel at ease, as though he is experiencing the show right along with them, and this has made his rapid success unsurprising.", password: 1234, picture_url:"https://www.yukyuks.com/utility/roster_image.cfm?image_name=john_cullen_webmar2015.jpg", widget_id: )
+Comedian.create(first_name:"John", last_name:"Cullen", email:"j@c.com", description: "He has been praised for being “immediately likable” on stage, a statement he fully endorses. John makes audiences feel at ease, as though he is experiencing the show right along with them, and this has made his rapid success unsurprising.", password: 1234, picture_url:"https://www.yukyuks.com/utility/roster_image.cfm?image_name=john_cullen_webmar2015.jpg", widget_id: "633128102999097344")
+
 
 
 #event: name, comedian_id, venue_id, date, ticket_price, picture_url 

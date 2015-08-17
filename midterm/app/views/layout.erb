@@ -51,10 +51,10 @@
           <li><a href="/users/show"><%= current_user.email %></a></li>
           <li><a href="/logout">Log out</a></li>
         <% elsif session[:comedian_id]%>   
-          <li><a href="/users/show"><%= current_comedian.email %></a></li>
+          <li><a href="/comedian/show"><%= current_comedian.email %></a></li>
           <li><a href="/logout">Log out</a></li>
         <% elsif session[:venue_id]%>   
-          <li><a href="/users/show"><%= current_venue.email %></a></li>
+          <li><a href="/venues/:id"><%= current_venue.email %></a></li>
           <li><a href="/logout">Log out</a></li>
         <% else %>
           <li><a  data-toggle="modal" data-toggle="modal" data-target="#myModal2"style="text-decoration: underline;">Log In</a></li>
@@ -106,7 +106,7 @@
                 <input type="password" name="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
 
               </div>
-<div class="checkbox">
+                <div class="checkbox">
                   <label>
                     <input type="checkbox"> I agree to the Terms and Conditions
                   </label>
@@ -321,22 +321,38 @@
 
 
   <script type="text/javascript">
+
   var venue_table = <%= @venues.to_json %>;
-  var venue_name = document.createElement("a"); venue_name.innerHTML = venue_table[0]["name".capitalize];
-  venue_name.href = "/venues/5";
+  var venue_name = document.createElement("a"); venue_name.innerHTML = venue_table[3]["name"];
+  venue_name.href = "/venues/2";
   var venue_name1 = document.createElement("a"); venue_name1.innerHTML = venue_table[1]["name"];
-  venue_name1.href = "/venues/7";
+  venue_name1.href = "/venues/2";
   var venue_name2 = document.createElement("a"); venue_name2.innerHTML = venue_table[2]["name"];
-  venue_name2.href = "/venues/2";
-    var venue_name3 = document.createElement("a"); venue_name3.innerHTML = venue_table[3]["name"];
-  venue_name3.href = "/venues/2";
+  venue_name2.href = "/venues/4";
+  var venue_name3 = document.createElement("a"); venue_name3.innerHTML = venue_table[6]["name"];
+  venue_name3.href = "/venues/4";  
+  var venue_name4 = document.createElement("a"); venue_name4.innerHTML = venue_table[5]["name"];
+  venue_name4.href = "/venues/5";
+
+  var alocations = []
+  venue_table.forEach(function (venue, index){
+      var venue_name = document.createElement("a"); 
+      venue_name.innerHTML = venue_table[index]["name"];
+  venue_name.href = "/venues/" + venue.id;
+  alocations[0] = venue_name;
+  alocations[1] = venue_name1;
+  });
+
+
 
   console.log(venue_table);
     var locations = [
-      [venue_name, 49.259630, -123.115102, 4],
-      [venue_name1, 49.280974, -123.127125, 5],
-      [venue_name2, 49.282106, -123.108271, 2],
-      [venue_name3, 49.282845, -123.115149, 3]
+      [venue_name, 49.280974, -123.127125], 
+      [venue_name1, 49.279875, -123.112472],
+      [venue_name2, 49.227612, -122.837813],
+      [venue_name3, 49.282729, -123.120738], 
+      ["Roger Arena", 49.276750, -123.111999],
+
     ];
 
     var map = new google.maps.Map(document.getElementById('map'), {
