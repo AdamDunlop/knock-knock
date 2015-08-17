@@ -332,16 +332,17 @@
   var venue_name3 = document.createElement("a"); venue_name3.innerHTML = venue_table[6]["name"];
   venue_name3.href = "/venues/4";  
   var venue_name4 = document.createElement("a"); venue_name4.innerHTML = venue_table[5]["name"];
-  venue_name4.href = "/venues/5";
+  venue_name4.href = "/venues/1";  
 
-  var alocations = []
-  venue_table.forEach(function (venue, index){
-      var venue_name = document.createElement("a"); 
-      venue_name.innerHTML = venue_table[index]["name"];
-  venue_name.href = "/venues/" + venue.id;
-  alocations[0] = venue_name;
-  alocations[1] = venue_name1;
-  });
+
+  // var alocations = []
+  // venue_table.forEach(function (venue, index){
+  //     var venue_name = document.createElement("a"); 
+  //     venue_name.innerHTML = venue_table[index]["name"];
+  // venue_name.href = "/venues/" + venue.id;
+  // alocations[0] = venue_name;
+  // alocations[1] = venue_name1;
+  // });
 
 
 
@@ -351,7 +352,8 @@
       [venue_name1, 49.279875, -123.112472],
       [venue_name2, 49.227612, -122.837813],
       [venue_name3, 49.282729, -123.120738], 
-      ["Roger Arena", 49.276750, -123.111999],
+      [venue_name4, 49.277933, -123.108842], 
+
 
     ];
 
