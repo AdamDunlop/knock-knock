@@ -1,9 +1,39 @@
 # Homepage (Root path)
 helpers do
-    def current_user
+  def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
   end
+
+  def current_comedian
+    @current_comedian ||= Comedian.find_by(id: session[:comedian_id]) if session[:comedian_id]
+  end
+
+  def current_venue
+    @current_venue ||= Venue.find_by(id: session[:venue_id]) if session[:venue_id]
+  end
+
+  def date_format(date)
+    date.strftime("%e %B %Y <br> Time: %I:%M %p ")
+  end
+
+  def random_joke   
+    jokes = []
+    all_comedians.each do |comedian|
+      if comedian.joke != nil
+        jokes << comedian.joke
+      end
+    end
+    jokes[rand(jokes.length)]
+
+  end
+
+  def all_comedians
+    @all_comedians = Comedian.all
+  end
+
 end
+
+
 
 get '/' do
   @comedians = Comedian.all
@@ -17,7 +47,8 @@ get '/login' do
 end
 
 get '/logout' do
-  erb :'logout'
+  session.clear
+  redirect '/'
 end
 
 get '/users/:id' do
@@ -28,9 +59,14 @@ get '/users/:id/edit' do
   erb :'users/edit'
 end
 
+# comedian index page
+get '/comedians' do
+  @comedians = Comedian.all
+  erb :'comedians/index'
+end
+
 get '/comedians/:id' do
   @comedian = Comedian.find(params[:id])
-  @tweets = @comedian.get_tweets
   @events = Event.where(comedian_id: @comedian.id)
   erb :'comedians/show'
 end
@@ -43,18 +79,27 @@ get '/comedians/:id/requests' do
   erb :'comedians/requests'
 end
 
+get '/venues' do
+  @venues = Venue.all
+  erb :'venues/index'
+end
+
+
 get '/venues/:id' do
   @venue = Venue.find(params[:id])
   @events = Event.where(venue_id: @venue.id)
   erb :'venues/show'
 end
 
-get '/venues' do
-  @venues = Venue.all
-  erb :'venues/index'
+post '/redirect' do
+  redirect '/venues/2/requests'
 end
 
+
 get '/venues/:id/requests' do
+  @requests = Request.where(venue_id: params[:id])
+  @events = Event.all
+  @venue = Venue.find(params[:id])
   erb :'venues/requests'
 end
 
@@ -64,7 +109,8 @@ end
 
 get '/events/index' do
   @events = Event.all
-  @events = @events.paginate(:page => params[:page], :per_page => 5)
+  @events_sorted = Event.order(date: :asc).where('date > ?', Date.today)
+  @events_sorted = @events_sorted.paginate(:page => params[:page], :per_page => 5)
   erb :'events/index'
 end
 
@@ -78,11 +124,22 @@ post '/comedians' do
   redirect '/'
 end
 
+get '/venues/:id/requests' do
+  redirect 'venues/:id'
+end
+
 delete '/events/:id' do
   @event = Event.find(params[:id])
   @event.destroy
   @event.save
   redirect '/events/index'
+end
+
+delete '/venues/:id/requests' do
+  @request = Request.find(params[:id])
+  @request.destroy
+  @request.save
+  redirect '/'
 end
 
 get '/search' do
@@ -126,25 +183,86 @@ post '/login' do
   password = params[:password]
 
   user = User.find_by(email: email)
+  if user.nil? 
+    flash[:message] = "Please enter a valid email address and password!"
+    redirect '/'
+  end
+  
   if user.password == password
     session[:user_id] = user.id
     redirect '/events/index'
+  elsif user.email != email || user.email == nil || user.password == nil
+    redirect '/'
   end
 end
 
-post '/users/new' do
-  email = params[:email]
-  password = params[:password]
+post '/login/comedian' do
+  com_email = params[:email]
+  com_password = params[:password]
 
-  user = User.find_by(email: email)
-
-  if user
-    redirect '/login'
-  else
-    user = User.create(email: email, password: password)
-    session[:user_id] = user.id
-    session[:notice] = "Account successfully created"
-    redirect '/events/index'
+  comedian = Comedian.find_by(email: com_email)
+  if comedian.nil? 
+    flash[:message] = "Please enter a valid email address and password!"
+    redirect '/'
+  elsif comedian.password == com_password
+    session[:comedian_id] = comedian.id
+    redirect '/comedians/1'
+  # binding.pry
   end
 end
+
+post '/login/venue' do
+  ven_email = params[:email]
+  ven_password = params[:password]
+
+  venue = Venue.find_by(email: ven_email)
+  if venue.nil?
+    flash[:message] = "Please enter a valid email address and password!"
+    redirect '/'
+  elsif venue.password == ven_password
+    session[:venue_id] = venue.id
+    redirect '/venues/1'
+  # binding.pry
+  elsif venue.email != ven_email || venue.email == nil || venue.password == nil
+    redirect '/'
+  end
+end
+
+post '/charge' do
+  # Amount in cents
+  # @amount = 500
+
+  customer = Stripe::Customer.create(
+    :email => 'customer@example.com',
+    :card  => params[:stripeToken]
+  )
+
+  charge = Stripe::Charge.create(
+    :amount      => @amount,
+    :description => 'Sinatra Charge',
+    :currency    => 'usd',
+    :customer    => customer.id
+  )
+
+  erb :charge
+end
+
+
+# post '/users/new' do
+#   email = params[:email]
+#   password = params[:password]
+
+#   user = User.find_by(email: email)
+
+#   if user
+#     redirect '/login'
+#   else
+#     user = User.create(email: email, password: password)
+#     session[:user_id] = user.id
+#     session[:notice] = "Account successfully created"
+#     redirect '/events/index'
+#   end
+# end
+
+
 

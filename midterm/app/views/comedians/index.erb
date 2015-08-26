@@ -1,0 +1,28 @@
+<div class="container jumbo-event">
+  <div class="container">
+    <div class="venue-jumbo">
+    </div>
+  </div>
+</div>
+
+<div class="container event-show">
+  <h1>Comedians</h1>
+  <hr>
+
+<div class="row">
+      <% @comedians.each do |comedian| %>
+      <div class="col-md-4">
+          <h3><%= "#{comedian.first_name}"%></h3>        
+          <a href="/comedians/<%= comedian.id%>">  
+          <div class="thumbnail-com">
+            <img class="home-comedians" src="<%= comedian.picture_url %>" alt="...">
+          </div>
+          </a>
+ 
+       </div> 
+      <%end%>  
+  </div>
+</div>
+
+
+

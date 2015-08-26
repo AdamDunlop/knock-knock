@@ -14,7 +14,8 @@ body {
 }
 
 .navbar {
-   margin-bottom:-20px;
+   margin-bottom:-5px;
+   z-index: 10;
 }
 .col-md-4 {
   text-align: center;
@@ -30,16 +31,23 @@ body {
   border:#d14b54; 
   font-size:22px;} 
 
+.btn-warning.event {
+  background-color: #e0a320;
+  font-size:22px;
+  text-align:center;
+}
+
 
 .btn-info { 
-
   border:#d14b54; 
   font-size:22px;
-  margin-top: 10px;} 
+  margin-top: 10px;
+} 
 
-.btn-primary:hover{ 
+.btn-primary:hover { 
   background-color: grey;
-  border:grey; } 
+  border:grey; 
+} 
 
 h1.home-title {
   text-align: center;
@@ -51,11 +59,22 @@ h1.home-title {
   color:white;
   padding-top:20px;
   padding-bottom:30px;
+
+
 }
 .container.events {
-  padding-top:30px;
-  margin-top:20px;
+
   margin-bottom: 20px;
+  background-image: url('../images/orangestars.png');
+  background-repeat:repeat;
+
+     background-size:cover;
+
+     width:100%;
+     
+     height: 100%;
+     position: relative;
+  
 }
 
 .row.event {
@@ -65,7 +84,8 @@ h1.home-title {
   border-radius: 10px;
   margin-left:50px;
   margin-right:50px;
-   border: 3px #8AEB2D solid;
+  font-size: 20px;
+  padding-top:15px;
 }
 .row.event:hover {
   position: relative;
@@ -89,7 +109,6 @@ h1.home-title {
   float:right;
   display:inline-block;
   position:relative;
-  top: 14px;
   right: 20px;
   border-radius:5px;
 
@@ -114,6 +133,8 @@ h1.home-title {
      width:100%;
      padding-top:580px;
      height: 100%;
+     position: relative;
+    
      
 }
 
@@ -159,13 +180,13 @@ h1.home-title {
   margin-left:50px;
   margin-right:80px;
   color: black;
-   box-shadow: 2px 2px 2px black;
+  box-shadow: 2px 2px 2px black;
 }
 
 .venue-event:hover {
   position: relative;
   top: 2px;
-    opacity: 0.7;
+  opacity: 0.7;
 }
 .first-block {
   background: #404040;
@@ -187,13 +208,6 @@ h1.home-title {
   left:50px;
 }
 
-.venue-twitter {
-  float:center;
-  position:relative;
-  top:-59px;
-  border-radius: 2px;
-}
-
 #nb-comedians {
   position: relative;
   top:-50px;
@@ -201,19 +215,27 @@ h1.home-title {
   color:white;
 }
 
+
+
 #mymap {
-  margin-top: 40px;
-  margin-left: auto;
-  margin-right: auto;
-  height: 480px;
-  width: 720px;
+  width: 100%;
+  height: 500px;
   background-color:#CCC;
+  position: relative;
+
+  border-radius:10px;
+  box-shadow:  2px 2px 6px black;
+}
+
+.current-event {
+  padding-top:40px;
+
 }
 
 .current-event:hover {
   position: relative;
   top:2px;
-    opacity: 0.7;
+  opacity: 0.9;
 }
 
 .home-comedians {
@@ -226,9 +248,16 @@ h1.home-title {
   margin-left: auto;
   margin-right: auto;
   position: relative;
-  top:-20px;
+  top:0px;
+  background-color: white;
+
+
 }
 
+.col-md-7.info-item {
+
+  padding-top:50px;
+}
 .login-error {
   border-top: 20px;
   margin-top:30px;
@@ -239,13 +268,48 @@ h1.home-title {
     text-align: center;
 }
 
-.pagination .current {
-  font-size:20px;
+.comedian-image.venue-image2 {
+  padding-top:20px;
 }
 
+
+.pagination .current {
+  font-size:20px;
+
+}
+
+
+.pagination {
+  background-color: orange;
+}
 .pagination a {
   font-size:20px;
   color: #8AEB2D;
+}
+
+.request-img {
+  height:145px;
+  width: 145px;
+  border-radius:100%;
+  border:6px solid #3A3A37;
+  position: relative;
+  top:15px;
+  
+ 
+}
+
+.single-request {
+
+  text-align:left;
+}
+
+.col-md-4.request {
+  min-height: 400px;
+  background: #f5f5f5;
+  border-radius: 15px;
+ box-shadow: 2px 2px 6px black;
+ background-image: url('../images/paper.png')
+
 }
 
 .pagination .next_page {
@@ -253,30 +317,88 @@ h1.home-title {
   color:#8AEB2D;
 }
 
+
 .pagination .previous_page {
   font-size:20px;
 
-blockquote.twitter-tweet {
-  display: inline-block;
-  padding: 16px;
-  margin: 10px 0;
-  max-width: 468px;
-  border: #ddd 1px solid;
-  border-top-color: #eee;
-  border-bottom-color: #bbb;
-  border-radius: 5px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
-  font: bold 14px/18px Helvetica, Arial, sans-serif;
-  color: red;
 }
+
+.requests-container {
+ background-image: url('../images/stage.jpg');
+     background-repeat: no-repeat;
+     background-size:cover;
+     background-position: center center;
+     width:100%;
  
-blockquote.twitter-tweet p {
-  font: normal 18px/24px Georgia, "Times New Roman", Palatino, serif;
-  margin: 0 5px 10px 0;
+     height: 100%;
 }
+
+.form-control.content  {
+   height: 100px;
+}
+
+.comedian-profile-picture {
+  margin-left:auto;
+  margin-right: auto;
+
+}
+
+.doge {
+    border: 7px solid grey;
+  border-radius: 100%;
+}
+
+.comedian-container {
+  background-image: url('../images/comedianbackground.jpg');
+     background-repeat: no-repeat;
+     background-size:cover;
+     background-position: center center;
+     width:100%;
  
-blockquote.twitter-tweet a[href^="https://twitter.com"] {
-  font-weight: normal;
-  color: #666;
-  font-size: 12px;
+     height: 100%;
+
+  
+}
+
+.jumbo-event {
+ background-color: #8AEB2D;
+  height:50px;
+  width: 100%;
+}
+
+.event-show {
+  color:white;
+  font-size: 20px;
+}
+
+.event-info-item p {
+  text-align: left;
+}
+
+.main-jumbo{
+     background-image: url('../images/orangestars.png');
+     background-repeat:repeat;
+   
+     width:100%;
+     padding-top:0px;
+     height: 100%;
+     
+}
+
+.row.middle-homepage {
+  background-color:white;
+}
+
+.thumbnail.a {
+  font-size: 30px;
+}
+
+.joke-bar {
+  height:50px;
+
+}
+
+.stripe-button-el {
+  position:relative;
+  left:220px;
 }

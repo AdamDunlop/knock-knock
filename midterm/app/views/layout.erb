@@ -21,10 +21,6 @@
   <title></title>
 </head>
 <body>
-
-
-
-
  <nav class="navbar navbar-inverse">
   <div class="container">
     <!-- Brand and toggle get grouped for better mobile display -->
@@ -43,7 +39,8 @@
       <ul class="nav navbar-nav">
         <li><a href="/">HOME <span class="sr-only">(current)</span></a></li>
         <li><a href="/events/index">EVENTS</a></li>
-        <li><a href="/venues">VENUES</a></li>
+        <li><a href="/comedians">COMEDIANS</a></li>
+        <li><a href="/venues">VENUES</a></li>        
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -73,7 +70,10 @@
 
 <%= yield %>
 
-
+<div class="joke-bar">
+  <h2 style="text-align:center; color:white;"><%= random_joke %></h2>
+</div>
+<hr>
 <div class="container footer">
   <div class="row">
     <div class="col-md-3">Blog<br>About Us<br>Jobs<br>API & Partners<br> Tourbox for artists</div>
@@ -81,10 +81,10 @@
     <div class="col-md-3">Home<br>Most popular charts<br>Forum</div>
     <div class="col-md-3"> <p>
 
-      <button type="button" class="btn btn-primary btn-lg button-home" data-toggle="modal" data-target="#myModal">
+      <button type="button" class="btn btn-primary btn-sm button-home" data-toggle="modal" data-target="#myModal">
         Sign up as Comedian
       </button>
-      <button type="button" class="btn btn-info btn-lg button-home" data-toggle="modal" data-target="#myModal3">
+      <button type="button" class="btn btn-info btn-sm button-home" data-toggle="modal" data-target="#myModal3">
         Sign up as Venue
       </button>
        <!-- Modal4 -->
@@ -248,8 +248,8 @@
          
                 </form>
                 </div>
-              </div>
-            </div>
+  </div>
+</div>
 
             </div>
             
@@ -318,9 +318,7 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="/javascript/bootstrap.min.js"></script>
 
-
-
-  <script type="text/javascript">
+<script type="text/javascript">
   var venue_table = <%= @venues.to_json %>;
   var venue_name = document.createElement("a"); venue_name.innerHTML = venue_table[0]["name".capitalize];
   venue_name.href = "/venues/5";
@@ -364,5 +362,7 @@
     }
 
   </script>
+
+
 </body>
 </html>

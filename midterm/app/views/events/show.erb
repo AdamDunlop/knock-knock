@@ -1,4 +1,110 @@
+<div class="container jumbo-event">
+  <div class="container">
+    <div class="venue-jumbo">
+    </div>
+  </div>
+</div>
 
-<h1>Event</h1>
-<p><%= "#{@event.name} | Date: #{@event.date} | Comedian: "%><a href="/comedians/<%= @event.comedian.id %>"><%="#{@event.comedian.first_name} #{@event.comedian.last_name} "%></a> | <a href="/venues/<%= @event.venue.id %>"><%= "Location: #{@event.venue.name}"%></a>
-</p>
+<div class="container event-show">
+  <h1 style="text-align:center">Event: <%= "#{@event.name}"%></h1>
+  <hr>
+  <div class="row">
+  	<div class="col-md-6">
+      <img class="event-image" src="<%= @event.picture_url %>"  width="100%">
+
+    </div>
+   
+    <div class="col-md-6 event-info-item" style="background-color:white; height:346px;">
+      <h2 style="text-align:center; color: black;">Event Information: </h2>
+      <p style="color: black; position:relative; left:140px; font-size:26px; top:20px;"><%= "Date: #{date_format(@event.date)} <br> Ticket Price: $#{@event.ticket_price} <br>Comedian: "%><a href="/comedians/<%= @event.comedian.id %>"><%="#{@event.comedian.first_name} #{@event.comedian.last_name} "%></a><br><%= "Location: "%><a href="/venues/<%= @event.venue.id %>"><%=" #{@event.venue.name}"%></a>
+      <div style="height:30px; position:relative; left:200px;"></div>
+      <form action="/charge" method="post" class="payment">
+    
+
+    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+            data-key="<%= settings.publishable_key %>" data-image="../images/comedyneone.png"
+         data-name="Knock Knock"
+         data-description= "<%= "#{@event.name}"%>"
+         data-amount= "<%= "#{@event.ticket_price*100}"%>">></script>
+  </form>      
+
+
+
+      
+   </p>
+   
+ </div>
+
+</div>	
+<hr>
+
+<input type="submit" value="Heckle the Comedian" class="btn-lg btn-warning event ">
+<hr>
+</div>
+
+
+
+
+
+
+
+           <!--  <a href="#">  <div class="thumbnail-event">
+                <img class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/07/CameronEspositoPortrait-210x170.jpg" alt="...">
+                <div class="caption">
+                  <h3>Event one</h3>
+                  <p> Test</p>
+
+                </div>
+              </div>
+            </div>
+            </a>
+           <a href="#"> <div class="col-md-4 info-item">
+              <div class="thumbnail">
+                <img  class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/07/BenDarsowPromoPhoto2-210x170.jpg" alt="...">
+                <div class="caption">
+                  <h3>Event two</h3>
+                 <p> Test</p>
+                </div>
+              </div>
+            </div>
+            </a>
+            <a href="#">
+            <div class="col-md-4 info-item">
+              <div class="thumbnail">
+                <img  class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/04/KevinBanner-210x170.png" alt="...">
+                <div class="caption">
+                  <h3>Event three</h3>
+                  <p> Test</p>
+                </div>
+              </div>
+            </div>
+            </a>
+          -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

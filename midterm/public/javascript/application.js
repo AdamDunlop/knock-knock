@@ -1,9 +1,10 @@
-
+/* jshint jquery:true */
+/* globals google */
 $(function() {
   "use strict";
   var geocoder;
   var mymap;
- 
+
   function initMap()
   {
     geocoder = new google.maps.Geocoder();
@@ -15,25 +16,32 @@ $(function() {
     });
   }
 
-  var infowindow = new google.maps.InfoWindow();
+  // image = "http://i.stack.imgur.com/cdiAE.png";
+  // labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  // labelIndex = 0;
+  // marker = new google.maps.Marker({
+  //   position: latlng,
+  //   map: mymap,
+  //   label: labels[labelIndex++ % labels.length],
+  //   draggable: true
+  // });
+
+  //var image = "http://i.stack.imgur.com/cdiAE.png";
+  //var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  //var labelIndex = 0;
 
   function codeAddress()
-  {  
-    var image = "http://i.stack.imgur.com/cdiAE.png";
-    var labels = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-    var labelIndex = 0;
+  {
     var address = document.getElementById("address").value;
     geocoder.geocode({ address: address},
       function(results, status)
       {
         if (status === google.maps.GeocoderStatus.OK)
-        { 
+        {
           mymap.setCenter(results[0].geometry.location);
           new google.maps.Marker({
             map: mymap,
-            position: results[0].geometry.location,
-            label: labels[labelIndex++ % labels.length],
-            draggable: true
+            position: results[0].geometry.location
           });
         }
         else
@@ -42,10 +50,6 @@ $(function() {
         }
       });
   }
-
-
-
-
   initMap();
   codeAddress();
 });

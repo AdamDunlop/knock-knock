@@ -1,10 +1,4 @@
-
-
-<div class="container top-page">
-
-
-
-  
+<div class="container top-page">  
  <h1 id="nb-comedians">Number of comedians in Vancouver: <%= @comedians.count %></h1><br> <h1 id="nb-comedians">Number of events in Vancouver: <%= @events.count %></h1>
   <div class="col-lg-4">
   </div>
@@ -29,48 +23,52 @@
 
       </div>
       <div class="row middle-homepage">
-       <a href="/events/index" type="button" class="btn btn-success btn-lg btn-block">SEE ALL EVENTS</a>
+          <img id="upcoming-events" src="../images/upcomingevents.png"/>
       </div>
+
+      
       <div class="jumbotron main-jumbo">
-        <div class="container">
-          <img id="upcoming-events" src="../images/upcomingevents.png">
-          
+      
+        <div class="container ">
+
           <div class="row">
+
             <div class="col-sm-6 col-md-4 current-event">
 
-            <a href="#">  <div class="thumbnail">
+            <a href="/events/<%=@events_sorted_by_date[0].id%>">  
+             <div class="thumbnail">
                 <img class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/07/CameronEspositoPortrait-210x170.jpg" alt="...">
                 <div class="caption">
-                  <h3>Event one</h3>
-                  <p> <%= "Event: #{@events_sorted_by_date[0].name} | Date: #{@events_sorted_by_date[0].date} | Comedian: #{@events_sorted_by_date[0].comedian.first_name}" %></p>
+                  <h3><%= "#{@events_sorted_by_date[0].name} "%></h3>
+                  <p style="font-size:18px;">  <%= "Date: #{date_format(@events_sorted_by_date[0].date)}"%><br><%= "Comedian: #{@events_sorted_by_date[0].comedian.first_name} #{@events_sorted_by_date[0].comedian.last_name}" %></p>
 
                 </div>
               </div>
             </div>
             </a>
-           <a href="#"> <div class="col-sm-6 col-md-4 current-event">
+           <a href="/events/<%= @events_sorted_by_date[1].id %>"> <div class="col-sm-6 col-md-4 current-event">
               <div class="thumbnail">
                 <img  class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/07/BenDarsowPromoPhoto2-210x170.jpg" alt="...">
                 <div class="caption">
-                  <h3>Event two</h3>
-                 <p> <%= "Event: #{@events_sorted_by_date[1].name} | Date: #{@events_sorted_by_date[1].date } | Comedian: #{@events_sorted_by_date[1].comedian.first_name}" %></p>
+                  <h3><%= "#{@events_sorted_by_date[1].name} "%></h3>
+                  <p style="font-size:18px;">  <%= "Date: #{date_format(@events_sorted_by_date[1].date)}"%><br><%= "Comedian: #{@events_sorted_by_date[1].comedian.first_name} #{@events_sorted_by_date[1].comedian.last_name}" %></p>
                 </div>
               </div>
             </div>
             </a>
-            <a href="#">
+            <a href="/events/<%=@events_sorted_by_date[2].id%>">
             <div class="col-sm-6 col-md-4 current-event">
               <div class="thumbnail">
                 <img  class="home-comedians" src="http://www.thecomedymix.com/wp-content/uploads/2015/04/KevinBanner-210x170.png" alt="...">
                 <div class="caption">
-                  <h3>Event three</h3>
-                  <p> <%= "Event: #{@events_sorted_by_date[2].name} | Date: #{@events_sorted_by_date[2].date} | Comedian: #{@events_sorted_by_date[2].comedian.first_name}" %></p>
+                <h3><%= "#{@events_sorted_by_date[2].name} "%></h3>
+                  <p style="font-size:18px;">  <%= "Date: #{date_format(@events_sorted_by_date[2].date)}"%><br><%= "Comedian: #{@events_sorted_by_date[2].comedian.first_name} #{@events_sorted_by_date[2].comedian.last_name}" %></p>
                 </div>
               </div>
             </div>
             </a>
           </div>
-          <a href="/events/index" type="button" class="btn btn-success btn-lg btn-block">See all events</a>
+          <a href="/events/index" type="button" class="btn btn-primary btn-lg btn-block">See all events</a>
 
         </div>
       </div>

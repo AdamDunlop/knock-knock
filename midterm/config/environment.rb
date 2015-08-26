@@ -12,6 +12,7 @@ require 'will_paginate'
 require 'will_paginate/active_record'
 require 'will_paginate/view_helpers/sinatra'
 require 'will_paginate/array' 
+require 'stripe'
 
 
 
@@ -38,3 +39,7 @@ require APP_ROOT.join('config', 'database')
 require APP_ROOT.join('app', 'actions')
 
 
+set :publishable_key, ENV['PUBLISHABLE_KEY']
+set :secret_key, ENV['SECRET_KEY']
+
+Stripe.api_key = "sk_live_yYvatPhubRPEWk0s2mtGxWvK"

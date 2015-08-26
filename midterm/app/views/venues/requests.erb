@@ -1,0 +1,49 @@
+
+<div class="container.fluid requests-container">
+  <div class="container events. requests" style="margin-bottom:30px;">
+
+    <h1 class="events-title"><%= @venue.name %></h1>
+
+    <% @requests.each do |request| %>
+    
+    <div style="width: 370px; margin:5px;" class="col-md-4 request">
+    <a href="/comedians/<%=request.comedian.id%>"><img class="request-img" src="<%="#{request.comedian.picture_url}" %>"/></a>
+      <h3>Such Request</h3>
+      <h4 class="single-request"><div style="position:relative; top:10px;padding-left:30px; padding-right:15px;text-decoration: underline"><%= " Date: #{request.date} | Comedian: #{request.comedian.first_name}"%></div><div style=" position:relative; top:20px;padding-left:30px; padding-right:30px;"><%=" Message: #{request.message}"%></h4>
+      
+      <button data-toggle="modal" data-target="#message" type="button" style="font-size:18px; position:relative; left:17px; bottom:-40px;float:left;" class="btn btn-success">Send Message</button>
+      <form method="post" action="/venues/<%= @venue.id %>/requests">
+       <input type="hidden" name="_method" value="delete">
+      <button style="font-size:18px; bottom:-40px; float:right; position:relative; right:17px;" type="submit" class="btn btn-danger">Delete request</button>
+
+        </form>
+
+      <div class="modal fade" id="message" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+              <h4 class="modal-title" id="myModalLabel">To: <%= "#{request.comedian.first_name} #{request.comedian.last_name} "%></h4>
+            </div>
+            <div class="modal-body">
+              <form method="get" action="/venues/<%= @venue.id %>/requests">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Message</label>
+                  <input type="text" name="email" class="form-control content" id="exampleInputEmail1" placeholder="">
+                </div>
+
+                <input type="submit" value="Send"class="btn btn-success">
+              </form>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  </p>
+</h4>
+</div>
+
+</div> <!-- closing main div -->
