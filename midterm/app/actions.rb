@@ -34,6 +34,7 @@ helpers do
 end
 
 
+
 get '/' do
   @comedians = Comedian.all
   @events = Event.all
@@ -58,6 +59,7 @@ get '/users/:id/edit' do
   erb :'users/edit'
 end
 
+
 get '/comedians/:id' do
   @comedian = Comedian.find(params[:id])
   @events = Event.where(comedian_id: @comedian.id)
@@ -72,11 +74,22 @@ get '/comedians/:id/requests' do
   erb :'comedians/requests'
 end
 
+get '/venues' do
+  @venues = Venue.all
+  erb :'venues/index'
+end
+
+
 get '/venues/:id' do
   @venue = Venue.find(params[:id])
   @events = Event.where(venue_id: @venue.id)
   erb :'venues/show'
 end
+
+post '/redirect' do
+  redirect '/venues/2/requests'
+end
+
 
 get '/venues/:id/requests' do
   @requests = Request.where(venue_id: params[:id])
@@ -104,6 +117,10 @@ end
 post '/comedians' do
   @comedian = Comedian.create(first_name: params[:first_name], last_name: params[:last_name], description: params[:description], password: params[:password], email: params[:email], picture_url: params[:picture_url])
   redirect '/'
+end
+
+get '/venues/:id/requests' do
+  redirect 'venues/:id'
 end
 
 delete '/events/:id' do
@@ -205,6 +222,7 @@ post '/login/venue' do
     redirect '/'
   end
 end
+
 
 
 # post '/users/new' do

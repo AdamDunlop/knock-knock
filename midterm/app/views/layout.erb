@@ -39,6 +39,7 @@
       <ul class="nav navbar-nav">
         <li><a href="/">HOME <span class="sr-only">(current)</span></a></li>
         <li><a href="/events/index">EVENTS</a></li>
+        
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -316,6 +317,65 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="/javascript/bootstrap.min.js"></script>
 
+ <script type="text/javascript">
+
+  var venue_table = <%= @venues.to_json %>;
+  var venue_name = document.createElement("a"); venue_name.innerHTML = venue_table[3]["name"];
+  venue_name.href = "/venues/4";  //comedy mix
+  var venue_name1 = document.createElement("a"); venue_name1.innerHTML = venue_table[1]["name"];
+  venue_name1.href = "/venues/2"; //queen elizabeth//
+  var venue_name2 = document.createElement("a"); venue_name2.innerHTML = venue_table[6]["name"];
+  venue_name2.href = "/venues/3"  //hardrock//
+  var venue_name3 = document.createElement("a"); venue_name3.innerHTML = venue_table[5]["name"];
+  venue_name3.href = "/venues/1";  //rogers arena//
+
+
+  // var alocations = []
+  // venue_table.forEach(function (venue, index){
+  //     var venue_name = document.createElement("a"); 
+  //     venue_name.innerHTML = venue_table[index]["name"];
+  // venue_name.href = "/venues/" + venue.id;
+  // alocations[0] = venue_name;
+  // alocations[1] = venue_name1;
+  // });
+
+
+
+  console.log(venue_table);
+    var locations = [
+      [venue_name, 49.280974, -123.127125], 
+      [venue_name1, 49.279875, -123.112472],
+      [venue_name2, 49.227612, -122.837813],
+      [venue_name3, 49.277933, -123.108842], 
+
+
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+      zoom: 13,
+      center: new google.maps.LatLng(49.282729, -123.120738),
+     mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, add;
+
+    for (add = 0; add < locations.length; add++) {  
+      marker = new google.maps.Marker({
+      position: new google.maps.LatLng(locations[add][1], locations[add][2]),
+        map: map
+      });
+
+      google.maps.event.addListener(marker, 'click', (function(marker, add) {
+        return function() {
+          infowindow.setContent(locations[add][0]);
+          infowindow.open(map, marker);
+        }
+      })(marker, add));
+    }
+
+  </script>
 </body>
 </html>
 

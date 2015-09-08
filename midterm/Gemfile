@@ -12,6 +12,7 @@ gem 'sinatra-flash'
 gem 'puma'
 gem 'tux'
 
+gem 'twitter'
 gem 'geocoder'
 gem 'will_paginate', '~> 3.0.6'
 

@@ -1,8 +1,8 @@
 
 <div class="container.fluid requests-container">
-  <div class="container events requests">
+  <div class="container events. requests" style="margin-bottom:30px;">
 
-    <h1 class="events-title">Venue Dashboard</h1>
+    <h1 class="events-title"><%= @venue.name %></h1>
 
     <% @requests.each do |request| %>
     
@@ -26,7 +26,7 @@
               <h4 class="modal-title" id="myModalLabel">To: <%= "#{request.comedian.first_name} #{request.comedian.last_name} "%></h4>
             </div>
             <div class="modal-body">
-              <form method="post" action="/comedians/<%= request.comedian.id %>">
+              <form method="get" action="/venues/<%= @venue.id %>/requests">
                 <div class="form-group">
                   <label for="exampleInputEmail1">Message</label>
                   <input type="text" name="email" class="form-control content" id="exampleInputEmail1" placeholder="">
